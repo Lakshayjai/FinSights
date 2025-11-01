@@ -1,0 +1,79 @@
+<%- include("partials/header") %>
+
+<section class="hero">
+  <h1>Stay Ahead with Real-Time Market Insights</h1>
+  <p>Track global exchanges, stock trends, forex rates, and crypto markets — all powered by Alpha Vantage.</p>
+  <div class="buttons">
+    <a href="#features" class="btn-primary">Explore Dashboard</a>
+    <a href="#apis" class="btn-secondary">View APIs</a>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <h2>Our Services</h2>
+  <div class="feature-grid">
+
+    <div class="card">
+      <h3>📈 Market Status</h3>
+      <p>See which exchanges are open or closed in real time.</p>
+      <a href="#">Explore</a>
+    </div>
+    
+    <div class="card">
+      <h3>💹 Stock Data</h3>
+      <p>Access intraday and historical stock information.</p>
+    </div>
+    
+    <div class="card">
+      <h3>💱 Forex & Currency</h3>
+      <p>Monitor real-time currency exchange rates.</p>
+    </div>
+    
+    <div class="card">
+      <h3>🪙 Crypto Prices</h3>
+      <p>Track live cryptocurrency market trends.</p>
+    </div>
+    
+    <div class="card">
+      <h3>📊 Technical Indicators</h3>
+      <p>View RSI, SMA, MACD, and other analytics instantly.</p>
+    </div>
+    
+    <div class="card">
+      <h3>💰 Economic Data</h3>
+      <p>Get macro-economic indicators for deeper insights.</p>
+    </div>
+    
+    <div class="card">
+      <h3>🗂 Sector Performance</h3>
+      <p>Compare sector-wise performance across markets.</p>
+    </div>
+  
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <div class="demo-box">
+    <section id="dashboard-preview" class="dashboard-preview">
+  <h2>📈 Live Market Dashboard Preview</h2>
+
+  <% if (marketStatus && marketStatus.markets) { %>
+    <div class="market-cards">
+      <% marketStatus.markets.forEach((market) => { %>
+        <div class="card">
+          <h3><%= market.region %></h3>
+          <p>Status: <%= market.current_status %></p>
+          <p>Local Open: <%= market.local_open %></p>
+          <p>Local Close: <%= market.local_close %></p>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p>Unable to fetch market data. Try again later.</p>
+  <% } %>
+</section>
+
+  </div>
+</section>
+
+<%- include("partials/footer") %>
